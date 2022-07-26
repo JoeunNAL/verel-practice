@@ -32,7 +32,11 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", ["@babel/preset-react", {"runtime": "automatic"}]],
+            presets: [
+              "@babel/preset-env",
+              // "@babel/preset-react",
+              ["@babel/preset-react", { runtime: "automatic" }],
+            ],
           },
         },
       },
@@ -41,7 +45,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
+      favicon: path.resolve(__dirname, "public", "favicon.ico"),
     }),
+    // new webpack.ProvidePlugin({
+    //   React: "react",
+    // }),
   ],
   /* 개발 서버 설정 */
   // devServer: {
